@@ -6,7 +6,7 @@
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/10 19:04:57 by lwray         #+#    #+#                 */
-/*   Updated: 2020/12/11 18:48:44 by lwray         ########   odam.nl         */
+/*   Updated: 2021/01/17 21:27:47 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 			break ;
 		i++;
 	}
+	if (s1[i] == '\0')
+		return ("");
 	len = ft_strlen((char *)s1);
 	while (len > 0)
 	{

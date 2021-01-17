@@ -6,13 +6,13 @@
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/11 15:12:49 by lwray         #+#    #+#                 */
-/*   Updated: 2020/12/11 18:18:05 by lwray         ########   odam.nl         */
+/*   Updated: 2021/01/17 21:35:12 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static void	free_split(char **strs)
+static void	*free_split(char **strs)
 {
 	int i;
 
@@ -22,6 +22,7 @@ static void	free_split(char **strs)
 		free(strs[i]);
 		i++;
 	}
+	return (NULL);
 }
 
 static int	count_words(char const *str, char c)
@@ -78,6 +79,8 @@ char		**ft_split(char const *s, char c)
 
 	word_count = count_words(s, c);
 	strs = (char **)malloc((word_count + 1) * sizeof(char*));
+	if (!strs)
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (s[i] != '\0')
@@ -86,10 +89,7 @@ char		**ft_split(char const *s, char c)
 		{
 			strs[j] = next_word(s, i, c);
 			if (strs[j] == NULL)
-			{
-				free_split(strs);
-				return (NULL);
-			}
+				return (free_split(strs));
 			j++;
 		}
 		i++;

@@ -6,16 +6,12 @@
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/10 19:31:28 by lwray         #+#    #+#                 */
-/*   Updated: 2020/12/11 18:04:31 by lwray         ########   odam.nl         */
+/*   Updated: 2020/12/13 14:10:45 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstclear(t_list **lst, void (*del)(void*));
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

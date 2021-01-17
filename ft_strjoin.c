@@ -6,7 +6,7 @@
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/10 16:35:27 by lwray         #+#    #+#                 */
-/*   Updated: 2020/12/11 18:44:49 by lwray         ########   odam.nl         */
+/*   Updated: 2020/12/18 21:35:54 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
 	joined_str = (char *)malloc(len + 1);
+	if (joined_str == NULL)
+		return (0);
 	i = 0;
 	j = 0;
 	while (s1[i] != '\0')

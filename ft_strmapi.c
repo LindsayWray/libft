@@ -6,7 +6,7 @@
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/11 18:41:10 by lwray         #+#    #+#                 */
-/*   Updated: 2020/12/11 18:46:58 by lwray         ########   odam.nl         */
+/*   Updated: 2021/01/17 20:20:57 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 
 	ret_str = (char *)malloc(ft_strlen((char *)s) + 1);
+	if (!ret_str)
+		return (NULL);
 	i = 0;
 	while (s[i] != '\0')
 	{
@@ -27,5 +29,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		ret_str[i] = ret_char;
 		i++;
 	}
+	ret_str[i] = '\0';
 	return (ret_str);
 }

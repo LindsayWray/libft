@@ -6,7 +6,7 @@
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/11 16:04:51 by lwray         #+#    #+#                 */
-/*   Updated: 2020/12/11 18:40:20 by lwray         ########   odam.nl         */
+/*   Updated: 2021/01/17 19:40:15 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ char			*ft_itoa(int n)
 		return (ft_strdup("-2147483648"));
 	num_len = number_len(n);
 	str = (char *)malloc(num_len + 1);
+	if (!str)
+		return (NULL);
 	str[num_len] = '\0';
 	index = num_len - 1;
 	if (n < 0)

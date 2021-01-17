@@ -6,15 +6,24 @@
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/05 13:12:45 by lwray         #+#    #+#                 */
-/*   Updated: 2020/11/05 14:21:38 by lwray         ########   odam.nl         */
+/*   Updated: 2021/01/17 19:34:35 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+#include <stdlib.h>
+
+static int	too_large_number(int sign)
 {
-	int res;
-	int i;
-	int sign;
+	if (sign < 0)
+		return (0);
+	return (-1);
+}
+
+int			ft_atoi(char *str)
+{
+	long long	res;
+	int			i;
+	int			sign;
 
 	i = 0;
 	res = 0;
@@ -31,9 +40,10 @@ int		ft_atoi(char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if (res > 92233720368547757)
+			return (too_large_number(sign));
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}
-	res = res * sign;
-	return (res);
+	return (res * sign);
 }

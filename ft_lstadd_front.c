@@ -6,7 +6,7 @@
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/11 18:07:21 by lwray         #+#    #+#                 */
-/*   Updated: 2020/12/11 18:07:40 by lwray         ########   odam.nl         */
+/*   Updated: 2021/01/17 21:38:42 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	new->next = *lst;
-	*lst = new;
+	if (new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }

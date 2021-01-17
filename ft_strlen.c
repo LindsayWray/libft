@@ -6,9 +6,11 @@
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/29 15:39:34 by lwray         #+#    #+#                 */
-/*   Updated: 2020/12/11 17:30:45 by lwray         ########   odam.nl         */
+/*   Updated: 2021/01/17 19:03:53 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 int		ft_strlen(char *str)
 {
