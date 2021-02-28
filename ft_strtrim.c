@@ -10,16 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	int		len;
-	char	*trim;
 
 	i = 0;
+	if (!s1)
+		return (NULL);
+	if (!set)
+		return (ft_strdup((char *)s1));
 	while (s1[i] != '\0')
 	{
 		if (!ft_strchr(set, s1[i]))
@@ -27,7 +29,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 	}
 	if (s1[i] == '\0')
-		return ("");
+		return (ft_strdup(""));
 	len = ft_strlen((char *)s1);
 	while (len > 0)
 	{
@@ -35,6 +37,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 			break ;
 		len--;
 	}
-	trim = ft_substr(s1, i, len - i);
-	return (trim);
+	return (ft_substr(s1, i, len - i));
 }

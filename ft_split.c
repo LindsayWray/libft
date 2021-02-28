@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static void	*free_split(char **strs)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (strs[i] != NULL)
@@ -22,16 +22,19 @@ static void	*free_split(char **strs)
 		free(strs[i]);
 		i++;
 	}
+	free(strs);
 	return (NULL);
 }
 
 static int	count_words(char const *str, char c)
 {
-	int count;
-	int i;
+	int	count;
+	int	i;
 
 	count = 0;
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i] != '\0')
 	{
 		if (str[i] != c)
@@ -70,7 +73,7 @@ static char	*next_word(char const *str, int i, char c)
 	return (new_word);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**strs;
 	int		word_count;
@@ -78,8 +81,8 @@ char		**ft_split(char const *s, char c)
 	int		j;
 
 	word_count = count_words(s, c);
-	strs = (char **)malloc((word_count + 1) * sizeof(char*));
-	if (!strs)
+	strs = (char **)malloc((word_count + 1) * sizeof (char *));
+	if (!strs || !s)
 		return (NULL);
 	i = 0;
 	j = 0;

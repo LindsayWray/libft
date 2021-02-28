@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static int	too_large_number(int sign)
 {
@@ -19,7 +19,7 @@ static int	too_large_number(int sign)
 	return (-1);
 }
 
-int			ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
 	long long	res;
 	int			i;

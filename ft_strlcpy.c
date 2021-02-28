@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
@@ -18,6 +18,8 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	unsigned int	count;
 	int				count_src;
 
+	if (!src)
+		return (0);
 	begin_src = src;
 	count_src = 0;
 	while (*begin_src != '\0')
@@ -26,9 +28,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 		count_src++;
 	}
 	if (size == 0)
-	{
 		return (count_src);
-	}
 	count = 0;
 	while (count < (size - 1) && (*src != '\0'))
 	{

@@ -10,12 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-static int		number_len(int n)
+static int	number_len(int n)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (n < 0)
@@ -31,7 +30,7 @@ static int		number_len(int n)
 	return (len + 1);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	int		num_len;

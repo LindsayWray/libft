@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
@@ -19,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*ret_str;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	ret_str = (char *)malloc(ft_strlen((char *)s) + 1);
 	if (!ret_str)
 		return (NULL);

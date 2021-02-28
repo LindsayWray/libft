@@ -10,21 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+
+char	*empty_str(void)
+{
+	char	*substr;
+
+	substr = (char *)malloc(1);
+	if (substr == NULL)
+		return (0);
+	substr[0] = '\0';
+	return (substr);
+}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*substr;
-	size_t	i;
+	char			*substr;
+	size_t			i;
+	unsigned int	len_s;
 
-	if ((unsigned int)ft_strlen((char *)s) < start)
-	{
-		substr = (char *)malloc(1);
-		substr[0] = '\0';
-		return (substr);
-	}
-	substr = (char *)malloc(len + 1);
+	if (!s)
+		return (NULL);
+	len_s = (unsigned int)ft_strlen((char *)s);
+	if (len_s < start)
+		return (empty_str());
+	if (len < (len_s - start))
+		substr = (char *)malloc(len + 1);
+	else
+		substr = (char *)malloc(len_s - start + 1);
 	if (substr == 0)
 		return (NULL);
 	i = 0;

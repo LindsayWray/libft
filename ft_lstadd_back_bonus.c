@@ -10,12 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *last;
+	t_list	*last;
 
 	if (lst && *lst)
 	{
@@ -23,4 +22,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		if (last)
 			last->next = new;
 	}
+	else if (lst)
+		*lst = new;
 }
