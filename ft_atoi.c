@@ -19,7 +19,7 @@ static int	too_large_number(int sign)
 	return (-1);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	long long	res;
 	int			i;
