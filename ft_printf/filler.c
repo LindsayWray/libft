@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstclear.c                                      :+:    :+:            */
+/*   filler.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/10 17:13:05 by lwray         #+#    #+#                 */
-/*   Updated: 2020/12/13 14:08:15 by lwray         ########   odam.nl         */
+/*   Created: 2021/02/25 18:37:38 by lwray         #+#    #+#                 */
+/*   Updated: 2021/02/25 18:37:41 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+long	print_padding(int padding, long input)
 {
-	if ((*lst)->next)
-		ft_lstclear(&((*lst)->next), del);
-	ft_lstdelone(*lst, del);
-	*lst = NULL;
+	if (input < 0)
+	{
+		ft_putchar ('-');
+		input = input * -1;
+	}
+	while (padding > 0)
+	{
+		ft_putchar('0');
+		padding--;
+	}
+	return (input);
+}
+
+void	print_space(int spaces)
+{
+	while (spaces > 0)
+	{
+		ft_putchar(' ');
+		spaces--;
+	}
 }

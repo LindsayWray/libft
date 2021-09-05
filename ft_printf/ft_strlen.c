@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstsize.c                                       :+:    :+:            */
+/*   ft_strlen.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/22 15:11:19 by lwray         #+#    #+#                 */
-/*   Updated: 2020/12/13 14:11:25 by lwray         ########   odam.nl         */
+/*   Created: 2021/02/25 18:41:54 by lwray         #+#    #+#                 */
+/*   Updated: 2021/02/25 18:41:56 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_lstsize(t_list *lst)
+int	strlen_or_precision(char *str, int precision)
 {
-	int	count;
+	int	len;
 
-	if (lst == NULL)
-		return (0);
-	count = 1;
-	while ((lst->next) != NULL)
-	{
-		lst = (lst->next);
-		count++;
-	}
-	return (count);
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	if (len > precision && precision >= 0)
+		return (precision);
+	return (len);
 }

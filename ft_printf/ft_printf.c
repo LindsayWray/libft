@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstadd_back.c                                   :+:    :+:            */
+/*   ft_printf.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/11 17:36:53 by lwray         #+#    #+#                 */
-/*   Updated: 2021/01/17 21:37:34 by lwray         ########   odam.nl         */
+/*   Created: 2021/01/24 12:30:45 by lwray         #+#    #+#                 */
+/*   Updated: 2021/02/25 18:40:17 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_printf(const char *format, ...)
 {
-	t_list	*last;
+	va_list			ap;
+	t_flagstruct	flags;
 
-	if (lst && *lst)
+	va_start(ap, format);
+	while (*format)
 	{
-		last = ft_lstlast(*lst);
-		if (last)
-			last->next = new;
+		if (*format == '%')
+		{
+			format++;
+			flags = flagcheck((char *)format, ap);
+			while (!is_specifier(*format) && *format)
+				format++;
+			ft_conversion(ap, *format, flags);
+		}
+		else
+			ft_putchar(*format);
+		format++;
 	}
-	else if (lst)
-		*lst = new;
+	va_end (ap);
+	return (char_count(0));
 }

@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstlast                                         :+:    :+:            */
+/*   ft_lstiter.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/22 15:11:19 by lwray         #+#    #+#                 */
-/*   Updated: 2020/12/11 18:06:25 by lwray         ########   odam.nl         */
+/*   Created: 2020/12/10 19:03:08 by lwray         #+#    #+#                 */
+/*   Updated: 2020/12/11 18:05:57 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstiter(t_element *lst, void (*f)(void*))
 {
-	if (lst == NULL)
-		return (NULL);
-	while ((lst->next) != NULL)
-		lst = (lst->next);
-	return (lst);
+	if (lst)
+	{
+		while (lst->next)
+		{
+			f(lst->content);
+			lst = lst->next;
+		}
+		f(lst->content);
+	}
 }

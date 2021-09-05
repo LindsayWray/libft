@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstdelone.c                                     :+:    :+:            */
+/*   ft_putchar.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/10 15:43:37 by lwray         #+#    #+#                 */
-/*   Updated: 2021/01/17 21:06:01 by lwray         ########   odam.nl         */
+/*   Created: 2021/01/27 09:41:00 by lwray         #+#    #+#                 */
+/*   Updated: 2021/02/25 18:40:28 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
+#include "ft_printf.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_putchar(char c)
 {
-	if (lst)
-	{
-		del(lst->content);
-		free(lst);
-	}
+	if (write(1, &c, 1) == -1)
+		return ;
+	char_count(1);
 }

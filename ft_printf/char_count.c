@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstiter.c                                       :+:    :+:            */
+/*   char_count.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lwray <lwray@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/10 19:03:08 by lwray         #+#    #+#                 */
-/*   Updated: 2020/12/11 18:05:57 by lwray         ########   odam.nl         */
+/*   Created: 2021/02/25 18:37:26 by lwray         #+#    #+#                 */
+/*   Updated: 2021/02/25 18:37:28 by lwray         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	char_count(int plus_one)
 {
-	if (lst)
+	static int	count = 0;
+	int			final_count;
+
+	if (!plus_one)
 	{
-		while (lst->next)
-		{
-			f(lst->content);
-			lst = lst->next;
-		}
-		f(lst->content);
+		final_count = count;
+		count = 0;
+		return (final_count);
 	}
+	count++;
+	return (count);
 }
